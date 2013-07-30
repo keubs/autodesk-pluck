@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <meta name="topicid" content="review_test_">
+    <meta name="product" content="VASARI">
 
     <title>Autodesk Pluck Widgets</title>
 
@@ -21,6 +22,7 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/review.css">
     <link rel="stylesheet" href="css/pajinate-styles.css">
+    <link rel="stylesheet" href="css/lightbox.css">
     <link rel="stylesheet" href="css/smoothness/jquery-ui-1.9.2.custom.min.css">
 
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -29,10 +31,13 @@
     <script src="js/vendor/handlebars.js" type="text/javascript"></script>
     <script src="js/vendor/jquery.cookie.js" type="text/javascript"></script>
     <script src="js/vendor/jquery.pajinate.js" type="text/javascript"></script>
+    <script src="js/vendor/lightbox-2.6.min.js" type="text/javascript"></script>
+    <script src="js/vendor/underscore.js" type="text/javascript"></script>
+    <script src="js/vendor/backbone.js" type="text/javascript"></script>
     <script src="js/cookieHelp.js" type="text/javascript"></script>
     <script src="js/step2popup.js" type="text/javascript"></script>
 
-    <script src="http://pluckstage.autodesk.com/ver1.0/Content/ua/scripts/pluckApps.js"></script>
+
     <script src="http://pluckstage.autodesk.com/ver1.0/Direct/JavascriptSDKProxy"></script>
 
 </head>
@@ -81,6 +86,11 @@
             </div>
             <div class="review-body">
                 <div class="review-body-text">{{{body}}}</div>
+                <div class="review-image-thumb">
+                    <a id="{{photoKey}}" href="" data-lightbox="{{photoKey}}">
+                        <img src=""/>
+                    </a>
+                </div>
                 <div class="review-body-links">
                     {{is-helpful this}}
                     <span class="review-body-useful-score">Useful ({{positiveCount}}/{{absoluteScore}})</span>
@@ -98,18 +108,38 @@
         </div>
     </script>
 
-    <script id="create-review" type="text/x-handlebars-template">
-        <div class="create-review">
-            <div class="create-review-title">
-                <span class="create-review-title-label">Title</span><input id="create-review-title-input" placeholder="Useful Title"/>
+    <script id="create-review-template" type="text/x-handlebars-template">
+        <div id="create-review">
+            <div id="create-review-title">
+                <span id="create-review-title-label">Title</span><input id="create-review-title-input" placeholder="Useful Title"/>
             </div>
-            <div class="create-review-body">
-                <textarea id="create-review-body-textarea" placeholder="Useful Description"></textarea>
+            <div id="create-review-body">
+                <textarea  maxlength="300" id="create-review-body-textarea" placeholder="Useful Description"></textarea>
+                <div id="photo-preview" data-imageid="">
+                    <div class="photo-preview-container">
+                        <img id="photo-preview-img" src=""/>
+                    </div>
+                    <span id="photo-preview-close"></span>
+                </div>
+                <div class="clear"></div>
             </div>
-            <div class="create-review-submit">
+            <div id="create-review-submit">
+                <form id="create-review-attach-form" action="http://pluckstage.autodesk.com/ver1.0/Review/UploadImageToReview" method="post"  accept-charset="utf-8" enctype="multipart/form-data" target="uploadPhotoIframe">
+                    <input type="hidden" placeholder="title" name="title" />
+                    <input type="hidden" placeholder="description" name="description" />
+                    <input type="file" id="attach-review-image-file" name="Filedata"  style="display:none" onchange="fileSelection()"/>
+                    <input type="hidden" name="reviewKey" value="a151b523-2b5f-4748-a8af-3611388e70ea" />
+                    <input type="submit" id="attach-review-submit" value="Upload To Review" style="display:none"/>
+                    <div id="create-review-attach">
+                        <span id="create-review-attach-icon"></span>
+                        <span id="create-review-attach-label">Attach File</span>
+                    </div>
+                </form>
                 <button id="create-review-submit-button" class="small-button">Submit</button>
+                <div class="clear"></div>
             </div>
         </div>
+        <iframe src="about:blank" id="photoUploadResults" name="uploadPhotoIframe" onload="pluckPhotoUploadComplete()" style="display:none"></iframe>
     </script>
 
     <script id="replies-template" type="text/x-handlebars-template">
@@ -150,7 +180,15 @@
             </div>
         </div>
     </script>
+
+    <script src="js/events.js" type="text/javascript"></script>
+    <script src="js/templating.js" type="text/javascript"></script>
+    <script src="js/imageHandlers.js" type="text/javascript"></script>
+    <script src="js/pluckCallbacks.js" type="text/javascript"></script>
+    <script src="js/defaultCallback.js" type="text/javascript"></script>
+    <script src="js/utils.js" type="text/javascript"></script>
     <script src="js/pluckMod.js" type="text/javascript"></script>
+
 
 </body>
 </html>

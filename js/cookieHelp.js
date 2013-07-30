@@ -1,6 +1,6 @@
 // HOST FILE ENTRY  54.241.213.150 dev1akn.autodesk.com
-var openIDProvider  = "http://accounts.autodesk.com";
-var userServiceUrl  = "http://akn.publisher.autodesk.com:8080";
+var openIDProvider  = "https://accounts-staging.autodesk.com";
+var userServiceUrl  = "http://akn.publisher-staging.autodesk.com";
 var adskLogout      = openIDProvider + "/Authentication/LogOut?ReturnToUrl=";
 
 function deleteCookie() {

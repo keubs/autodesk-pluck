@@ -5,5 +5,6 @@
 1. pluckMod.js
 2. review.css
 3. templates within index.html
+4. view protoype in action here: http://dev1akn.autodesk.com:40053/pluck_prototype/
 
 I haven't rolled this into a proper module yet, so please let me know if a particular format or pattern will be easier to embed in AC/DC

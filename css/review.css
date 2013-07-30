@@ -117,6 +117,11 @@ a .no-link{
 
 /*Reviews Widgets*/
 
+#reviews-list{
+    margin: 100px 0 0 0;
+    width: 500px;
+}
+
 #reviews-create{
     margin: 0 0 40px 0;
 }
@@ -237,19 +242,18 @@ a .no-link{
 }
 
 /* Review Create */
-
-.create-review{
+#create-review{
     width: 500px;
     height: 210px;
     margin: 10px 0 0 0;
 }
 
-.create-review-title{
+#create-review-title{
     height: 30px;
     padding: 5px 0 0 0;
 }
 
-.create-review-title-label{
+#create-review-title-label{
     display: inline-block;
     width: 35px;
     color: #666666;
@@ -259,19 +263,90 @@ a .no-link{
     width: 455px;
 }
 
-.create-review-body{
+#create-review-body{
     padding: 5px 5px 0 0;
 }
 
 #create-review-body-textarea{
     width: 491px;
-    height: 125px;
+    height: 200px;
     border: 1px solid #bcbcbc;
 }
 
-.create-review-submit{
-    height: 25px;
+/* Begin create review attachment */
+#create-review-attach{
+    height: 20px;
     margin: 10px 0 0 0;
+    float: left;
+    cursor: pointer;
+}
+
+#create-review-attach-icon{
+    width: 20px;
+    height: 20px;
+    float: left;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    background: url(../img/icon_attachfile.png) 4px 2px no-repeat;
+}
+
+#create-review-attach-label{
+    font-family: "Frutiger Next";
+    font-size: 12px;
+    margin: 6px 0 0 6px;
+    float: right;
+    color: #666666;
+    cursor: pointer;
+}
+
+#photo-preview{
+    display: none;
+    position: absolute;
+    margin-top: -110px;
+    width: 474px;
+    height: 100px;
+    margin-left: 8px;
+    margin-right: auto;
+    text-align: center;
+    border-top: 1px solid #bcbcbc;
+    z-index: 99;
+    padding: 4px;
+}
+
+#photo-preview-close{
+    float: right;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(../img/x.png) 0 0 no-repeat;
+}
+
+.photo-preview-container{
+    margin: 4px;
+    padding: 0px;
+    float: left;
+    height: 90px;
+    width: 90px;
+}
+
+#photo-preview-img{
+    max-width: 100%;
+}
+
+.review-image-thumb img{
+    border-radius: 4px;
+}
+
+#photoUploadResults{
+
+}
+
+#create-review-submit{
+    height: 25px;
+    margin: 10px 0 10px 0;
 }
 
 #create-review-submit-button{

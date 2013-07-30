@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+         <title>Test Cases</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+
+
+    </head>
+    <body>
+     TEST CASES
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+       <br/><br/>
+       1) Generate Pluck cookie
+       <br/><br/>
+     <input type="button" onclick="generateCookie();" id="generateCookieBtn" value="Generate Cookie"/>
+
+
+      <br/><br/>
+           2) Delete Pluck cookie
+            <br/><br/>
+     <input type="button" onclick="deleteCookie();" id="deleteCookieBtn" value="Delete Cookie"/>
+
+     <br/><br/>
+                3) Get  cookie data
+                 <br/><br/>
+     <input type="button" onclick="getCookieData();" id="getCookieBtn" value="Get  Cookie Data"/>
+
+      <script type="text/javascript">
+		// HOST FILE ENTRY  54.241.213.150 dev1akn.autodesk.com
+		var userServiceUrl ="http://dev1akn.autodesk.com:8080";
+           function generateCookie() {
+
+           //var data ={"namePerson":"parveen deswal","userid":"P33RQK4NHSBT","first":"parveen","last":"deswal","email":"parveen.deswal@autodesk.com"}
+           //var dataJsonRequest = JSON.stringify(data);
+             //console.log('my dataJsonRequest: '+dataJsonRequest);
+	var data ="namePerson=parveen deswal&userid=P33RQK4NHSBT&first=parveen&last=deswal&email=parveen.deswal@autodesk.com";
+
+
+
+         $.ajax({
+              data: data,
+              url: userServiceUrl+"/aknuserservices/pluck/generatepluckcookie",
+              type: 'GET',
+              crossDomain:true,
+             contentType: "application/json",
+              dataType: "jsonp",
+              error: function(err){
+              	alert("error is" + err);
+                 console.log(err);
+              },
+              success: function(data){
+           	console.log("succes is" + data);
+
+             }
+           });
+           }
+
+           function getCookieData() {
+
+	            /* var data ={"namePerson":"parveen deswal","userid":"P33RQK4NHSBT","first":"parveen","last":"deswal","email":"parveen.deswal@autodesk.com"}
+
+	             var dataJsonRequest = JSON.stringify(data);
+
+	              console.log('my dataJsonRequest: '+dataJsonRequest); */
+	              var data ="namePerson=parveen deswal&userid=P33RQK4NHSBT&first=parveen&last=deswal&email=parveen.deswal@autodesk.com";
+	           $.ajax({
+	                data: data,
+	                url: userServiceUrl+"/aknuserservices/pluck/createpluckcookiedata",
+	                type: 'GET',
+	                 crossDomain:true,
+	                contentType: "application/json",
+	                dataType: "jsonp",
+	                error: function(err){
+	                	alert("error is" + err);
+	                   console.log(err);
+	                },
+	                success: function(data){
+	             	console.log("succes is" + data);
+	             	$.each(data, function(key, val) {
+				   console.log("key is" + key);
+				    console.log("value is" + val);
+				});
+	               }
+	             });
+	             }
+
+
+            function deleteCookie() {
+
+	      var data ="";
+
+	     // var dataJsonRequest = JSON.stringify(data);
+
+
+	   	 $.ajax({
+		 data: data,
+		 url: userServiceUrl+"/aknuserservices/pluck/droppluckcookie",
+		 type: 'GET',
+		 contentType: "application/json",
+		  crossDomain:true,
+		 dataType: "jsonp",
+		 error: function(err){
+			alert("error is" + err);
+		    console.log(err);
+		 },
+		 success: function(data){
+		console.log("succes is" + data);
+
+		}
+	      });
+           }
+
+
+
+      </script>
+
+      	<!-- Pluck  ---->
+            	    <script type="text/javascript" src="http://pluckstage.autodesk.com/ver1.0/Content/ua/scripts/pluckApps.js?skipCSS=true"></script>
+            	    <link rel="stylesheet" type="text/css" href="http://pluckstage.autodesk.com/ver1.0/content/ua/css/pluckAll.css" />
+            	    <!--[if IE 6]>
+            	                        <link rel="stylesheet" type="text/css" href="http://pluckstage.autodesk.com/ver1.0/content/ua/css/pluckAll.ie6.css" />
+            	    <![endif]-->
+
+      	   <!-- Pluck  ---->
+             <!-- Pluck  ---->
+                <script type="text/javascript">
+                    pluckAppProxy.embedApp("pluck_reviews_list", {
+                        plckArticleTitle: 'title',
+                        plckArticleUrl: 'url',
+                        plckDiscoveryCategories: "inventor, getting started",
+                        plckDiscoverySection: "software",
+                        plckReviewOnKey: 'key',
+                        plckReviewOnKeyType: "article"
+                    });
+                </script>
+
+<!-- Pluck  ---->
+     </body>
+</html>
+<body>

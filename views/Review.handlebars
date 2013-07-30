@@ -1,0 +1,33 @@
+<div class="review">
+    <div class="review-header">
+        <h3 class="review-header-title">{{title}}</h3>
+        <div class="review-header-report">
+            <span class="review-header-report-a" href="javascript:void(0);" data-review-key="{{reviewKey}}">REPORT</span>
+        </div>
+        <div class="clear"></div>
+        <span class="review-header-create-date">{{createDate}}</span>
+        <div class="review-header-byline">{{username}}</div>
+
+    </div>
+    <div class="review-body">
+        <div class="review-body-text">{{{body}}}</div>
+        <div class="review-image-thumb">
+            <a id="{{photoKey}}" href="" data-lightbox="{{photoKey}}">
+                <img src=""/>
+            </a>
+        </div>
+        <div class="review-body-links">
+            {{is-helpful this}}
+            <span class="review-body-useful-score">Useful ({{positiveCount}}/{{absoluteScore}})</span>
+            <div class="review-body-comment-links">
+                <a class="review-body-comments-link-reply" href="javascript:void(0);">Reply</a>
+                <a class="review-body-comments-link-show-all replies-hidden" data-review-key="{{reviewKey}}" data-replies-text="{{replies}}" href="javascript:void(0);">{{{replies}}}</a>
+            </div>
+        </div>
+        <div class="review-body-comment-box hidden">
+            <span class="review-body-comment-box-avatar"></span>
+            <input type="text" class="review-body-comment-box-input" placeholder="Write a comment..." data-review-key="{{reviewKey}}"/>
+        </div>
+        <div class="review-body-reply-list {{reviewKey}}"></div>
+    </div>
+</div>
