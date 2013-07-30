@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+    console.log('in response...');
+    console.log(window.location.href);
+    // <![CDATA[
+    if (window.opener) {
+        window.opener.Oxygen.processOpenIDResponse(window.location.href);
+    } else {
+        try {
+            parent.Oxygen.processOpenIDResponse(window.location.href);
+        } catch (e) {
+            window.top.Oxygen.processOpenIDResponse(window.location.href);
+        }
+    }
+    // ]]>
+</script>
+</body>
+</html>

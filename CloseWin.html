@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  </head>
+  <body>
+      <script type = "text/javascript">
+
+            window.parent.location = window.parent.location;
+
+
+            function parseQueryString(s) {
+
+                var split = (/\?/.test(s) ? s.split('?')[1] : s).split('&'), query = {}, param, i, j;
+
+                for (i = 0, j = split.length; i < j; i++) {
+                    param = split[i].split('=');
+                    console.log("parm is" + param);
+                    query[param[0]] = decodeURIComponent(param[1]);
+                }
+
+                return query;
+            }
+
+      </script>
+  </body>
+</html>

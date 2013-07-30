@@ -1,0 +1,44 @@
+.ellipse{
+	float: left;
+}
+
+.container{
+	width: 260px;
+	float: left;
+	margin: 50px 10px 10px;
+	padding: 20px;
+	background-color: white;
+}
+
+.page_navigation , .alt_page_navigation{
+	padding-bottom: 10px;
+}
+
+.page_navigation a, .alt_page_navigation a{
+	padding:3px 5px;
+	margin:2px;
+	color: #666666;
+	text-decoration:none;
+	float: left;
+	font-size: 12px;
+	background-color:#ffffff;
+    border: 1px solid #cccccc;
+}
+
+.active_page{
+	background-color: #2b84be !important;
+	color: #ffffff !important;
+    border: 1px solid #2b84be !important;
+}
+
+.active_page a{
+    color: red !important;
+}
+
+.content, .alt_content{
+	color: black;
+}
+
+.content li, .alt_content li, .content > p{
+	padding: 5px
+}

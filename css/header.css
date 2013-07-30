@@ -1,0 +1,47 @@
+#header {
+    background-color: rgba(40, 0, 40, 0.5);
+    height: 63px;
+    position: relative;
+    z-index: 1;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feffff), color-stop(35%,#fafafa), color-stop(100%,#ebebeb));
+    border-bottom: 1px solid #dedede;
+}
+
+#black-bar{
+    display: block;
+    width: auto;
+    height: 7px;
+    background: rgba(60, 60, 60, 1);
+}
+
+#main-header{
+    padding: 8px 12px 12px 12px;
+}
+
+.product-logo{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-image: url(../img/AutoCAD.png);
+    float: left;
+}
+
+.adsk-name{
+    font-family: "Frutiger LTStd light";
+    font-size: 21px;
+    float: left;
+    margin: 12px 0 0 15px;
+    font-weight: lighter;
+    color: rgba(80, 80, 80, 1);
+}
+
+.adsk_name > .bold{
+    font-weight: bold !important;
+    color: #000000;
+}
+
+.adsk_name > .year{
+    color: rgba(160, 160, 160, 1);
+}
+
+/*box-shadow: 0 0 white inset, 0 3px 3px 1px rgba(50, 50, 50, .2);*/

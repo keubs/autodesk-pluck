@@ -1,0 +1,12 @@
+#frame-right, #frame-right a{
+    font-family: "Frutiger Next";
+    color: #999999;
+    text-decoration: none;
+}
+
+.index-footer{
+    height: 10px;
+    background-image:-webkit-gradient(linear, 0% 20%, 0% 100%, from(rgba(255,255,255,.1)), to(#ffffff));
+    position: relative;
+    top: -10px;
+}

@@ -1,0 +1,173 @@
+#frame-left{}
+
+#main-content{
+    font-family: "Frutiger LT Standard Roman";
+    padding: 0 0 40px 0;
+}
+
+#main-content h1{
+    font-size: 28px;
+}
+
+#main-content h2{
+    font-size: 24px;
+}
+
+#main-content h3{
+    font-size: 21px;
+}
+
+#main-content  p, #main-content ol, #main-content ul, #main-content ul p, dt, dd, dl{
+    color: #000000;
+    font-size: 13px;
+    margin: 5px 0 10px 0;
+    line-height: 24px;
+}
+
+#main-content p a:hover{
+    text-decoration: underline;
+}
+
+.back-to-top{
+    display: block;
+    height: 20px;
+    float: right;
+    font-size: 12px;
+    margin: 0 0 30px 0;
+    padding: 10px 0 0 0;
+    color: rgba(6, 150, 215, 1);
+    cursor: pointer;
+
+}
+
+.back-to-top:hover{
+    text-decoration: underline;
+}
+
+.up-arrow{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: url(../img/up_arrow.png) no-repeat 0 0;
+    margin: 0 8px 0 0;
+}
+
+#main-content ol{
+    counter-reset: li;
+    list-style: decimal;
+    padding: 0;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    margin: 0 0 0 30px;
+    color: rgba(6, 150, 215, 1);
+}
+#main-content ol li{
+    margin: 0 0 8px 0;
+}
+
+#main-content ol li span{
+    color: #000000;
+}
+
+#main-content ol .screenshot{
+    display: block;
+    position: relative;
+    width: 545px;
+    height: 320px;
+    margin: 0 0 25px -30px;
+    padding: 0;
+    background: url(../img/img.png) no-repeat 0 0;
+}
+
+#main-content ol ul{
+    color: rgba(153, 153, 153, 1);
+    list-style: disc;
+    line-height: 14px;
+    margin: 10px 0 10px 14px;
+}
+
+#main-content ol ul li span{
+    color: #000000;
+}
+
+/* Begin Direct ULs from product package */
+
+#main-content ul{
+    list-style: none;
+}
+
+#main-content ul li{
+    margin: 10px 0 4px 14px;
+    line-height: 16px;
+}
+
+#main-content ul li span{
+    color: #000000;
+}
+
+#main-content ul li ul{
+    color: rgba(153, 153, 153, 1);
+    list-style: disc;
+    line-height: 14px;
+    margin: 10px 0 10px 14px;
+}
+
+#main-content ul li ul li{
+    margin: 5px 0 5px 14px;
+}
+
+#main-content ul li ul li span{
+    color: #000000;
+}
+
+#main-content ul li ul li a:hover{
+    text-decoration: underline;
+}
+
+/* End Direct ULs from product package */
+
+
+#main-content dl{
+    list-style: none;
+}
+
+#main-content dt{
+    margin: 10px 0 4px 0px;
+    text-decoration: underline;
+}
+
+#main-content dd{
+    margin: 10px 0 4px 14px;
+
+}
+
+
+.note{
+    padding: 16px;
+    margin: 20px 0 20px 0;
+    background: rgba(238, 238, 238, 1);
+    border: 1px solid #cfcfcf;
+    font-size: 13px !important;
+}
+
+.note h1{
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    font-size: 13px !important;
+}
+
+.note p{
+    color: #7d7d7d;
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+}
+
+.separator{
+    display: block;
+    height: 10px;
+    margin: 5px 0 20px 0;
+    padding: 0;
+    border-bottom: 1px solid #dddddd;
+}
+

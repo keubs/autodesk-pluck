@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    </head>
+    <body>
+    <script src="js/cookieHelp.js" type="text/javascript"></script>
+    <script type = "text/javascript">
+
+    console.log("in close window response: " + window.location.href);
+    var query = parseQueryString(window.location.href);
+    console.log("query is " + query);
+
+    window.close();
+
+
+    function parseQueryString(s) {
+
+        var split = (/\?/.test(s) ? s.split('?')[1] : s).split('&'), query = {}, param, i, j;
+
+//        console.log(split);
+//        var myParams = '';
+//            myParams = url.split('\?');
+//            myParams = myParams.split('\&');
+//
+//        var params  = {};
+//
+//        //loginNeeded=true
+//        for(var item in myParams){
+//            var temp = myParams[item].split('=');
+//            params[temp[0]] = temp[1];
+//        }
+//
+//        console.dir(params);
+
+        for (i = 0, j = split.length; i < j; i++) {
+            param = split[i].split('=');
+            console.log("param is " + param);
+            if (param[0] == 'loginNeeded'){
+                query[param[0]] = decodeURIComponent(param[1]);
+                //console.log("param is " + query[param[0]]);
+                return param[1];
+            }
+
+        }
+
+
+    }
+
+</script>
+</body>
+</html>

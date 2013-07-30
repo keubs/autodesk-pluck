@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta name="topicid" content="review_test_">
+    <meta name="product" content="VASARI">
+
+    <title>Autodesk Pluck Widgets</title>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/oxygen_base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/review.css">
+    <link rel="stylesheet" href="css/pajinate-styles.css">
+    <link rel="stylesheet" href="css/smoothness/jquery-ui-1.9.2.custom.min.css">
+
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="js/vendor/jquery-1.9.0.min.js" type="text/javascript"></script>
+    <script src="js/vendor/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="js/vendor/handlebars.js" type="text/javascript"></script>
+    <script src="js/vendor/jquery.cookie.js" type="text/javascript"></script>
+    <script src="js/vendor/jquery.pajinate.js" type="text/javascript"></script>
+    <script src="js/cookieHelp.js" type="text/javascript"></script>
+    <script src="js/step2popup.js" type="text/javascript"></script>
+    <script src="http://pluckstage.autodesk.com/ver1.0/Direct/JavascriptSDKProxy"></script>
+
+    <script type="text/javascript">
+
+        //IMPORTANT - If we POST to an iFrame we need to make sure to set the document.domain to the same as the calling page above - otherwise we get a cross-domain security error
+        document.domain = "autodesk.com";
+
+        function pluckPhotoUploadComplete() {
+            var resultsIframe = document.getElementById("photoUploadResults");
+            if (!(!resultsIframe)) { //Make sure element exists
+                var results = resultsIframe.contentWindow.document.body.innerHTML;
+                var photoKey = results;
+                if (results.length > 0) {
+                    //This check is just to make sure that we do not get back the script tag at the top of the response - we shouldn't since we are getting the body, but this makes sure.
+                    if (results.indexOf("script>") > 0) {
+                        photoKey = results.substr(results.indexOf("script>") + 7);
+                    }
+                    // DO SOMETHING WITH PHOTO KEY HERE
+                    if (window.console && window.console.debug) window.console.debug('photoKey: '+photoKey);
+                    getImg(photoKey);
+
+                }
+            }
+        }
+
+        function getImg(photoKey){
+            var request = new PluckSDK.ImageRequest();
+
+            request.ImageId = photoKey;
+
+            console.log(request);
+            PluckSDK.SendRequests([request], imgCallback);
+        }
+
+        function assocImg(imageId){
+            // img d4ec3371-b40d-4571-857b-f186c452cc7a
+            var myKey = {
+                key: "24022abb-114e-4f54-96d6-57d87ee361cd"
+            }
+
+            var request = new PluckSDK.AddReviewPhotoActionRequest();
+
+            var reviewKey = new PluckSDK.ReviewKey();
+            reviewKey.Key = myKey.key;
+
+            request.Title = 'YoTEST';
+            request.Description = 'YO DESC';
+            request.ReviewKey = reviewKey;
+            request.ImageID = imageId;
+
+            console.log(request);
+            PluckSDK.SendRequests([request], assocCallback);
+
+        }
+
+        function showImg(url, imageId){
+            //$("#photoUploadResults").contents().find("body").append('<img src="'+url+'"/><input id="hiddenId" type=hidden value="'+imageId+'">');
+            assocImg(imageId);
+        }
+
+        function imgCallback(responses){
+            console.log(responses);
+            showImg(responses[0].Image.SmallPendingApproval, responses[0].Image.ImageId);
+        }
+
+        function assocCallback(responses){
+            console.log(responses[0]);
+
+        }
+
+    </script>
+
+
+</head>
+<body>
+<!--[if lt IE 7]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div id="header">
+        <div id="black-bar"></div>
+        <div id="main-header">
+            <span class="product-logo"></span>
+            <span class="adsk-name">AUTODESK <span class="bold product-name">Pluck Widgets</span> <span class="year product-year">2014</span></span>
+            <div id="cookie-help">
+                <input type="button" id="logout-button" class="small-button" value="Log Out"/>
+            </div>
+        </div>
+    </div>
+
+    <div id="main">
+        <div id="frame-left">
+            <div id="main-content">
+                <div id="image-upload">
+
+                    <h2>UploadImageToReview</h2>
+                    <form action="http://pluckstage.autodesk.com/ver1.0/Review/UploadImageToReview" method="post"  accept-charset="utf-8" enctype="multipart/form-data" target="uploadPhotoIframe">
+                        <input type="hidden" placeholder="title" name="title" />
+                        <input type="hidden" placeholder="description" name="description" />
+                        <input type="file" name="Filedata" />
+                        <input type="hidden" name="reviewKey" value="a151b523-2b5f-4748-a8af-3611388e70ea" />
+                        <input type="submit" value="Upload To Review" />
+                    </form>
+                    <hr>
+
+                    <iframe src="about:blank" id="photoUploadResults" name="uploadPhotoIframe" onload="pluckPhotoUploadComplete()" width="500px" height="100px">
+                        <html>
+                        <head>
+                            <script src="js/vendor/jquery-ui.min.js" type="text/javascript"></script>
+                            <script type="text/javascript">
+
+                                //IMPORTANT - If we POST to an iFrame we need to make sure to set the document.domain to the same as the calling page above - otherwise we get a cross-domain security error
+                                document.domain = "autodesk.com";
+
+                            </script>
+                        </head>
+                        </html>
+                            <body>
+
+                            </body>
+                    </iframe>
+                </div>
+
+                <hr class="hr-separator"><hr class="hr-separator">
+                <h3 class="discuss">Discuss</h3>
+                <div id="reviews-create"></div>
+                <div id="reviews">
+                    <div id="reviews-list" class="content"></div>
+                    <div class="page_navigation"></div>
+                </div>
+                <div id="default-reviews"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!--Ok – here is the example I sent again.  And yes as I stated in the last couple of emails you should be using Photo/UploadToReview and then ImageRequest to get the URL and/or PhotoKey and then AFTER the ReviewActionRequest you can do the AddReviewPhotoActionRequest
+
+Here are the steps I stated in my email that is below –
+
+Looks like from our widget the way this :
+1.       You do the photo upload. Get an ImageID back (GUID)
+2.       You do a ImageRequest and pass the ImageID you get back from the response and you get a photo object.
+3.       You can then use the URLs to display a thumbnail of the image if you like.  You will need to use the PhotoKey and ImageID so keep those handy
+4.       Then upon submission of the Review you do the ReviewActionRequest first and the AddReviewPhotoActionRequest and pass the ImageID and the PhotoKey on that call -->

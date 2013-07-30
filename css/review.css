@@ -1,0 +1,319 @@
+.hr-separator{
+    height: 0px;
+    margin-bottom: -8px;
+}
+
+.discuss{
+    margin-top: 18px !important;
+}
+
+.abuse-popup{
+    width: 200px;
+    height: 180px;
+    position: absolute;
+    background: #ffffff;
+    margin-top: -10px;
+    margin-left: -10px;
+    padding: 0px 6px 6px 6px;
+    border: 1px solid #cccccc;
+    box-shadow: 2px 2px 2px;
+    color: #666666;
+    font-size: 12px;
+    font-family: "Frutiger Next";
+}
+
+.abuse-popup-h4{
+    font-size: 15px;
+    height: 20px;
+    float: left;
+    margin-bottom: 7px;
+    margin-top: 4px;
+    padding: 0px;
+    color: #666666;
+}
+
+.abuse-popup-div{
+    margin-bottom: 5px;
+}
+
+.abuse-popup-label{
+    display: block;
+    width: 40px;
+    margin-bottom: 10px;
+    float: left !important;
+    text-align: left !important;
+}
+
+.abuse-popup-select{
+    float: right;
+    width: 160px;
+}
+
+.abuse-popup-textarea{
+    float: right;
+    width: 193px;
+    height: 70px;
+    margin-bottom: 5px;
+}
+
+.abuse-popup-div-buttons{
+    padding: 0 0 0 45px;
+}
+
+.abuse-popup-button{
+    font-size: 10px !important;
+}
+
+#logout-button{
+    float: right;
+    margin: 5px 0 0 0;
+}
+
+.small-button{
+    display: inline-block;
+    color: #ffffff;
+    border-radius: 4px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(25%,#ffffff), color-stop(100%,#eeeeee));
+    border: 1px solid #cccccc;
+    color: #2c84b7;
+    font-size: 14px;
+    padding: 5px 10px 5px 10px;
+}
+
+.helpful-button{
+    font-size: 12px !important;
+    color: #666666 !important;
+    padding: 4px 5px 4px 5px;
+}
+
+a .no-link{
+    text-decoration: no-underline !important;
+    cursor: default;
+}
+
+#oxygen-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 60006;
+    padding: 10px;
+    background-color: rgb(255, 255, 255); -webkit-box-shadow: rgba(0, 0, 0, 0.498039) 0px 2px 8px; box-shadow: rgba(0, 0, 0, 0.498039) 0px 2px 8px;
+    opacity: 1;
+    width: 350px;
+    height: 358px;
+    margin-top: -175px;
+    margin-left: -178px;
+}
+
+#oxygen-closebtn{
+    position: absolute;
+    top: -8.727272727272727px;
+    right: -8.727272727272727px;
+    width: 24px; height: 24px;
+    z-index: 60008;
+    background: url(../img/close_24.png) no-repeat 0 0;
+    cursor: pointer;
+}
+
+/*Reviews Widgets*/
+
+#reviews-create{
+    margin: 0 0 40px 0;
+}
+
+.review{
+    width: 500px;
+    min-height: 200px;
+    margin: 10px 0 24px 0;
+    font-size: 14px;
+    color: #666666;
+}
+
+.review-header-title{
+    font-size: 15px !important;
+    text-shadow: 0px 0px 1px #000;
+    color: #000 !important;
+    float: left;
+    margin: 0;
+    padding: 4px 0 0px 0;
+    width: 400px;
+    line-height: 16px !important;
+}
+
+.review-header-report{
+    font-size: 13px !important;
+    color: #666666 !important;
+    float: right;
+    margin: 0;
+    padding: 4px 0 0px 0;
+    width: 100px;
+    line-height: 16px !important;
+    text-align: right;
+    background: url(../img/icon_report.png) no-repeat 30px center;
+    cursor: pointer;
+}
+
+
+.review-header-create-date, .review-header-byline{
+    display: inline-block;
+    font-size: 12px;
+    height: 18px;
+    overflow: none !important;
+    padding: 4px 0 0px 0;
+    color: #666666;
+    margin: 0 4px 0 0;
+}
+
+
+.review-body-text{
+    font-size: 14px;
+    height: 80px;
+    max-height: 80px !important;
+    padding: 4px 0 2px 0;
+    overflow-y: auto;
+    margin: 0 0 12px 0;
+    color: #333333 !important;
+}
+
+.review-body-text > p{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.review-body-links{
+    font-size: 10px !important;
+}
+
+.review-body-links span{
+    margin: 0 4px 0 0;
+    font-size: 14px;
+    color: #666666;
+}
+
+.review-body-useful-score{
+    margin: 0;
+    float: right;
+    font-size: 12px !important;
+    color: #666666;
+}
+
+.review-body-comment-links{
+    margin: 5px 0 5px 0;
+    color: #666666;
+    font-size: 14px;
+}
+
+.review-body-comment-links a{
+    color: #2c84b7 !important;
+}
+
+.review-body-comment-box{
+    height: 40px;
+    width: 500px;
+    margin: 10px 0 5px 0;
+    padding: 0;
+}
+
+.review-body-comments-link-show-all{
+    cursor: pointer;
+}
+
+.review-body-comment-box-avatar{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    float: left;
+    background: url(../img/avatar.png);
+}
+
+.review-body-comment-box-input{
+    display: inline-block;
+    width: 451px;
+    height: 36px;
+    float: right;
+    padding: 0 0 0 5px;
+    color: #666666;
+    font-size: 12px;
+}
+
+/* Review Create */
+
+.create-review{
+    width: 500px;
+    height: 210px;
+    margin: 10px 0 0 0;
+}
+
+.create-review-title{
+    height: 30px;
+    padding: 5px 0 0 0;
+}
+
+.create-review-title-label{
+    display: inline-block;
+    width: 35px;
+    color: #666666;
+}
+
+#create-review-title-input{
+    width: 455px;
+}
+
+.create-review-body{
+    padding: 5px 5px 0 0;
+}
+
+#create-review-body-textarea{
+    width: 491px;
+    height: 125px;
+    border: 1px solid #bcbcbc;
+}
+
+.create-review-submit{
+    height: 25px;
+    margin: 10px 0 0 0;
+}
+
+#create-review-submit-button{
+    float: right;
+    margin: 0 3px 0 0;
+}
+
+
+/*Replies*/
+.review-body-reply-list-item{
+    font-size: 14px;
+    margin: 14px 0 14px 14px;
+    position: relative;
+
+}
+
+.review-body-reply-list-item-avatar{
+    float: left;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url(../img/avatar.png);
+    margin: 0 10px 0 0;
+}
+
+.review-body-reply-list-item-body-username{
+    margin: 0 14px 0 0;
+    display: inline-block;
+    color: #565656;
+    text-shadow: 0px 0px 1px #565656;
+}
+
+.review-body-reply-list-item-body{
+    line-height: 18px;
+    padding: 0 !important;
+
+    overflow: auto !important;
+
+}
+
+.review-body-reply-list-item-hours{
+    margin: 6px 0 10px 50px;
+    font-size: 12px;
+    color: #cccccc;
+}

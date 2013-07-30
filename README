@@ -1,0 +1,9 @@
+## ADSK Pluck Widgets. ##
+
+### The bulk of the work here is contained in: ###
+
+1. pluckMod.js
+2. review.css
+3. templates within index.html
+
+I haven't rolled this into a proper module yet, so please let me know if a particular format or pattern will be easier to embed in AC/DC

@@ -1,0 +1,148 @@
+/**********
+ * Oxygen *
+ **********/
+
+ul.user{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.user li{
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+ul.user li ul{
+    margin: 0;
+    padding: 0;
+}
+
+
+#oxygen_header {
+    background-color: #000;
+    color: #fff;
+    height: 38px;
+    padding: 6px 10px;
+    font: normal 12px/1.33 Arial, Helvetica, sans-serif;
+}
+
+#oxygen_header .branding {
+    color: #fff;
+    float: left;
+    vertical-align: middle;
+    line-height: 38px;
+    text-decoration: none;
+}
+
+#oxygen_header .branding h1 {
+    margin: 0;
+    font-size: 16px;
+}
+
+#oxygen_header .branding img {
+    border: 0;
+}
+
+#oxygen_user_area {
+    float: right;
+    position: relative;
+    top: 12px;
+}
+
+#oxygen_user_area .user,
+#oxygen_user_area .user li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#oxygen_user_area .user li {
+    float: left;
+}
+
+#oxygen_user_area .login {
+    display: none;
+    cursor: pointer;
+}
+
+#oxygen_user_area .login:focus,
+#oxygen_user_area .login:hover {
+    text-decoration: underline;
+}
+
+#oxygen_user_area .checkid_progress,
+#oxygen_user_area .logged_user {
+    display: none;
+}
+
+#oxygen_user_area li.visible {
+    display: list-item;
+}
+
+#oxygen_user_area span.visible {
+    display: inline;
+}
+
+#oxygen_user_area .logged_user #oxygen_username {
+    color: #75a3ff;
+    cursor: default;
+}
+
+#oxygen_user_area .logged_user #oxygen_username:focus {
+    outline: 1px dotted rgba(255, 255, 255, 0.8);
+}
+
+#oxygen_user_area .logged_user ul {
+    display: none;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(204, 204, 204, 0.6);
+    min-width: 0;
+    padding: 5px;
+    white-space: nowrap;
+    line-height: 1.75;
+    list-style-type: none;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    z-index: 9999;
+    -moz-border-radius: 2px;
+    -webkitborder-radius: 2px;
+    border-radius: 2px;
+}
+
+#oxygen_user_area .logged_user:hover ul,
+#oxygen_user_area .logged_user.open ul {
+    display: block;
+}
+
+#oxygen_user_area .logged_user ul li {
+    border-top: 1px solid #383838;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+#oxygen_user_area .logged_user ul li:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0 none;
+}
+
+#oxygen_user_area .logged_user ul li a {
+    display: block;
+    font-size: 12px;
+    line-height: 22px;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 5px;
+    -moz-border-radius: 2px;
+    -webkitborder-radius: 2px;
+    border-radius: 2px;
+}
+
+#oxygen_user_area .logged_user ul li a:focus,
+#oxygen_user_area .logged_user ul li a:hover {
+    background-color: #507fc1;
+}

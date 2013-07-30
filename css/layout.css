@@ -1,0 +1,135 @@
+@import url(header.css);
+@import url(frame-left.css);
+@import url(frame-right.css);
+
+
+@font-face {
+    font-family: "Frutiger Next";
+    src: local("Frutiger Next") url('../fonts/FrutigerNextLTW1G-Regular.otf');
+}
+
+@font-face {
+    font-family: "Frutiger LTStd light";
+    src: local("Frutiger LTStd light") url('../fonts/FrutigerLTStd-Light.otf');
+}
+
+@font-face {
+    font-family: "Frutiger LT Standard Roman";
+    src: local("Frutiger LT Standard Roman") url('../fonts/FrutigerLTStd-Light.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media only screen and (min-width : 660px){
+
+    h1, h2, h3, h4, h5{
+        color: rgba(153, 153, 153, 1);
+        margin: 10px 0 10px 0;
+        line-height: 34px;
+    }
+
+    #main {
+        position: relative;
+		margin-left: auto;
+        margin-right: auto;
+        width: 960px;
+        min-width: 960px;
+        max-width: 960px;
+	}
+
+    #frame-left{
+        float: left;
+
+        width: 530px;
+        min-width: 530px;
+        max-width: 530px;
+
+        min-height: 700px;
+
+        padding: 0 69px 0 0;
+
+        margin: 0 0 -20px 20px;
+        /* Negative margin so border goes past footer with 10px padding */
+        /*Total width 600px */
+    }
+
+    #frame-right{
+
+        float: right;
+
+        padding: 30px 20px 0 20px;
+
+        width: 320px;
+        min-width: 320px;
+        max-width: 320px;
+
+
+        height: auto;
+        min-height: 600px;
+
+
+        overflow: auto;
+
+        /* Total width 360px */
+    }
+
+    #footer {
+        height: 20px;
+        min-height: 20px;
+        max-height: 20px;
+        border-top: 1px solid #dedede;
+    }
+
+    #oxygen_user_area{
+        display: none;
+    }
+
+    .black_overlay{
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1001;
+    }
+
+    .overlay_frame{
+        display: none;
+        text-align: center;
+        position: fixed;
+        top: 25%;
+        left: 50%;
+        margin: 0 0 0 -37.5%;
+        border: 1px solid rgba(22, 255, 255, 1);
+        background: rgba(22, 255, 255, 1);
+        z-index: 1002;
+    }
+
+    .clear{
+        clear: both;
+    }
+
+    #content-data{
+        display: none;
+    }
+
+    .truncated{
+        overflow: hidden;
+    }
+
+    .hidden{
+        display: none !important;
+    }
+
+    .spinner{
+        background: url(../img/spinner.gif) no-repeat 0 0;
+    }
+
+}
+
+@media only screen and (max-width : 320px) {
+
+}
