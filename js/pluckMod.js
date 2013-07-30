@@ -1,27 +1,12 @@
 /*
  * Global variables used to set pluck review ids and categories
  */
-var commonServer = "http://local.autodesk.com/";
+var commonServer = "http://pipe.autodesk.com/pluck_adsk/"
 var guid         = $('meta[name=topicid]').attr("content");
-var product      = $('meta[name=product]').attr("content");
 var lang         = "en";
 var title        = document.title;
 var myId         = guid+lang;
 var authValid    = false;
-
-
-/*
-* ResponseStatus: Object
- Exceptions: Array[1]
- 0: Object
- ExceptionCode: "InvalidCredentials"
- ExceptionLevel: "Error"
- ExceptionMessage: "Command Security Failure: User not allowed to execute command. Anonymous users are not allowed to create a review."
- Name: "ExecutingUserKey"
- ObjectType: "Models.System.Exceptions.ResponseException"
- Value: "anonymous"
-
- * */
 
 /* Ready state
  *  run these as soon as document is ready
@@ -29,7 +14,7 @@ var authValid    = false;
 $(document).ready(function(){
 //    var abuse    = abuse_template();
 //    $('#main').prepend(abuse);
-   immediateAdskLogin(commonServer, true, false);
+    immediateAdskLogin(commonServer, true, false);
 
 });
 
@@ -167,7 +152,6 @@ function authCallback(responses){
         $('#reviews-create').html('<input type="button" id="generateCookieBtn" class="small-button" value="Add a Comment"/>');
         //create review posting disabled state
         console.log('user is not logged in');
-        console.log(responses);
         $('iframe[name=iframe-immediate]').remove();
         getReviews(myId, "ALL", false);
     }
@@ -176,46 +160,6 @@ function authCallback(responses){
 /* Global functions Pluck Reviews / Comments create, update, etc.
  * These functions handle creation of new reviews and review / comment related SDK requests
  */
-
-function assocImg(){
-    // img d4ec3371-b40d-4571-857b-f186c452cc7a
-    var myKey = {
-        key: "a151b523-2b5f-4748-a8af-3611388e70ea"
-    }
-
-    var request = new PluckSDK.AddReviewPhotoActionRequest();
-//
-//    var parentKey = new PluckSDK.ExternalResourceKey();
-//    parentKey.Key = myId;
-
-    var reviewKey = new PluckSDK.ReviewKey();
-    reviewKey.Key = myKey.key;
-
-    request.Title = 'YoTEST';
-    request.Description = 'YO DESC';
-    request.ReviewKey = reviewKey;
-    request.ImageID = '209edce9-89fe-4b66-80a2-6108bf68441d';
-
-    console.log(request);
-    PluckSDK.SendRequests([request], imgCallback);
-
-}
-
-function getImg(){
-    var request = new PluckSDK.ImageRequest();
-
-    request.ImageId = '209edce9-89fe-4b66-80a2-6108bf68441d';
-
-    console.log(request);
-    PluckSDK.SendRequests([request], imgCallback);
-
-
-}
-
-function imgCallback(response){
-    console.log(response);
-}
-
 function abuseSubmit(myKey){
 
     var parentKey = new PluckSDK.ExternalResourceKey();
@@ -279,19 +223,11 @@ function createReview(id, review){
     newReview.ReviewCons = "acdReviewCons";
     newReview.ReviewIsRecommmended = true;
 
-    var categories = new PluckSDK.DiscoveryCategory();
-    categories.Name = [product];
-
-    newReview.Categories = categories.Name;
-
     var reviewRequest = new PluckSDK.ReviewsPageRequest();
     reviewRequest.ReviewedKey = articleKey;
     reviewRequest.ItemsPerPage = 1;
     reviewRequest.OneBasedOnPage = 1;
 
-
-    console.dir(newReview);
-    //PluckSDK.SendRequests([newReview], reviewSubmitCallback);
     PluckSDK.SendRequests([articleAction, newReview, reviewRequest], reviewSubmitCallback);
 
 }
@@ -456,7 +392,6 @@ function itemScoreCallback(responses){
 function prependSingleReviewCallback(responses) {
 
     var actionResponse = responses[0];
-    console.log(actionResponse);
     var myReviewList =  [];
 
         if (actionResponse.ResponseStatus.StatusCode !== PluckSDK.ResponseStatusCode.OK) {
@@ -532,8 +467,6 @@ function prependSingleReviewCallback(responses) {
 function reviewCallback(responses) {
 
     var actionResponse = responses[0];
-
-    console.log(actionResponse);
     var myReviewList =  [];
 
     if (actionResponse.ResponseStatus.StatusCode !== PluckSDK.ResponseStatusCode.OK) {
@@ -601,8 +534,7 @@ function reviewCallback(responses) {
 }
 
 function reviewSubmitCallback(responses) {
-    console.log('review submit callback');
-    if (window.console && window.console.dir) window.console.dir(responses);
+    //if (window.console && window.console.dir) window.console.dir(responses);
     checkReviewCreation(myId);
     $('#create-review-title-input').val('');
     $('#create-review-body-textarea').val('');
